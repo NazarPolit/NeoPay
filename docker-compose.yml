@@ -20,5 +20,12 @@ services:
       - "10001:10001"
       - "10002:10002"
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: neopay_bus
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
 volumes:
   sqldata:
