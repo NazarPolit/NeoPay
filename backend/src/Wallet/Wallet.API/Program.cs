@@ -20,6 +20,16 @@ builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddMediatR(cfg =>
 	cfg.RegisterServicesFromAssembly(typeof(CreateWalletCommand).Assembly));
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowAngular", policy =>
+	{
+		policy.WithOrigins("http://localhost:4200")
+			  .AllowAnyHeader()
+			  .AllowAnyMethod();
+	});
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -29,5 +39,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.UseCors("AllowAngular");
 app.MapControllers();
 app.Run();
