@@ -1,33 +1,11 @@
 $primary-color: #0056b3;
-$bg-color: #f4f7f6;
 $card-bg: #ffffff;
-$text-color: #333333;
 $danger-color: #e74c3c;
 
-.wallet-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: $bg-color;
-  min-height: 100vh;
+:host {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  color: $text-color;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-  
-  h1 {
-    color: $primary-color;
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  p {
-    color: gray;
-    margin-top: 0.5rem;
-  }
+  justify-content: center;
+  width: 100%;
 }
 
 .content {
@@ -68,7 +46,7 @@ $danger-color: #e74c3c;
   }
 }
 
-.loading, .error {
+.loading-state, .error-state {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,31 +58,13 @@ $danger-color: #e74c3c;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.loading p {
+.loading-state p {
   margin: 1rem 0 0 0;
   color: gray;
   font-size: 1.1rem;
 }
 
-.error {
+.error-state {
   color: $danger-color;
   font-weight: bold;
-}
-
-.spinner {
-  width: 45px;
-  height: 45px;
-  border: 4px solid rgba($primary-color, 0.2); 
-  border-left-color: $primary-color; 
-  border-radius: 50%;
-  animation: spin 1s linear infinite; 
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }

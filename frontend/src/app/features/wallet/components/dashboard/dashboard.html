@@ -1,0 +1,28 @@
+<div class="content">
+  @if (isLoading()) {
+    <div class="loading-state">
+      <app-spinner></app-spinner>
+      <p>Loading data...</p>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="error-state">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  @if (!isLoading() && wallet(); as w) {
+    <div class="card">
+      <h2>My Wallet</h2>
+      <div class="balance-block">
+        <span class="label">Available balance:</span>
+        <span class="amount">{{ w.availableBalance }} {{ w.currency }}</span>
+      </div>
+      <div class="balance-block held">
+        <span class="label">On hold:</span>
+        <span class="amount">{{ w.heldAmount }} {{ w.currency }}</span>
+      </div>
+    </div>
+  }
+</div>

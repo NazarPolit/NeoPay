@@ -1,0 +1,16 @@
+$primary-color: #0056b3;
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    color: $primary-color;
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  p {
+    color: gray;
+    margin-top: 0.5rem;
+  }
+}

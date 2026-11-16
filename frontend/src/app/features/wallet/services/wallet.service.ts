@@ -1,20 +1,14 @@
-import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
-import { Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-export interface WalletDto {
-  availableBalance: number;
-  heldAmount: number;
-  currency: string;
-}
+import { Observable } from 'rxjs';
+import { WalletDto } from '../models/wallet'; // Імпорт моделі
+import { environment } from '../../../../environments/environment.development';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WalletService {
   private http = inject(HttpClient);
-
   private apiUrl = `${environment.apiUrl}/Wallet`; 
 
   createWallet(userId: string, currency: string): Observable<{ walletId: string }> {

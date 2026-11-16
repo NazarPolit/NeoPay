@@ -1,0 +1,15 @@
+$primary-color: #0056b3;
+
+.spinner-circle {
+  width: 45px;
+  height: 45px;
+  border: 4px solid rgba($primary-color, 0.2); 
+  border-left-color: $primary-color; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
