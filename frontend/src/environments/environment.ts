@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://neopay-api.azurewebsites.net/api' 
+  apiUrl: 'http://127.0.0.1:5190/api'
 };
