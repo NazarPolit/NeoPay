@@ -68,3 +68,65 @@ $danger-color: #e74c3c;
   color: $danger-color;
   font-weight: bold;
 }
+
+.actions-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+
+  input {
+    width: 100%;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+    &:disabled {
+      background-color: #f9f9f9;
+    }
+  }
+
+  .currency-label {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    font-weight: bold;
+    pointer-events: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+
+  &:hover:not(:disabled) {
+    background-color: darken($primary-color, 10%);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

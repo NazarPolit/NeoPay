@@ -18,4 +18,8 @@ export class WalletService {
   getWallet(userId: string): Observable<WalletDto> {
     return this.http.get<WalletDto>(`${this.apiUrl}/${userId}`);
   }
+
+  deposit(userId: string, amount: number, currency: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${userId}/deposit`, { amount, currency });
+  }
 }

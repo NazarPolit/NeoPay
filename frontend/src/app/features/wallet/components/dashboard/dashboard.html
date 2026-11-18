@@ -23,6 +23,29 @@
         <span class="label">On hold:</span>
         <span class="amount">{{ w.heldAmount }} {{ w.currency }}</span>
       </div>
+      <div class="actions-section">
+        <div class="input-group">
+          <!-- Використовуємо ngModel для двостороннього зв'язування з сигналом -->
+          <input 
+            type="number" 
+            placeholder="Amount" 
+            [ngModel]="depositAmount()" 
+            (ngModelChange)="depositAmount.set($event)"
+            [disabled]="isProcessing()"
+          />
+          <span class="currency-label">{{ w.currency }}</span>
+        </div>
+        <button 
+          class="btn-primary" 
+          (click)="onDeposit()" 
+          [disabled]="isProcessing() || !depositAmount() || depositAmount()! <= 0">
+          @if (isProcessing()) {
+            Processing...
+          } @else {
+            Deposit
+          }
+        </button>
+      </div>
     </div>
   }
 </div>
